@@ -298,10 +298,26 @@ table {
   margin: var(--spacing-lg) 0;
   background: white;
   border-radius: 24px;
-  overflow-x: auto;
   border: 2px solid #f3f4f6;
   box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
-  display: block;
+}
+
+/* Table wrapper for horizontal scroll on mobile */
+.markdown-content table {
+  display: table;
+  max-width: 100%;
+}
+
+@media (max-width: 768px) {
+  .markdown-content {
+    overflow-x: auto;
+  }
+
+  .markdown-content table {
+    display: block;
+    overflow-x: auto;
+    white-space: nowrap;
+  }
 }
 
 th,
