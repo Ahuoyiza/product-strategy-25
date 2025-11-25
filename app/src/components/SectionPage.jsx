@@ -128,22 +128,26 @@ const SectionPage = ({ section, prevSection, nextSection, isHero }) => {
                         gap: '2rem',
                         zIndex: 1,
                         position: 'relative',
+                        flexDirection: 'row',
                         flexWrap: 'wrap'
                     }}>
-                        {prevSection ? (
-                            <Link to={`/${prevSection.id}`} className="btn btn-secondary">
+                        {prevSection && (
+                            <Link to={`/${prevSection.id}`} className="btn btn-secondary" style={{ order: 1 }}>
                                 ← {prevSection.title}
                             </Link>
-                        ) : (
-                            <div style={{ flex: 1 }} />
                         )}
 
-                        {nextSection ? (
-                            <Link to={`/${nextSection.id}`} className="btn btn-primary">
+                        {nextSection && (
+                            <Link
+                                to={`/${nextSection.id}`}
+                                className="btn btn-primary"
+                                style={{
+                                    order: 2,
+                                    marginLeft: !prevSection ? 'auto' : '0'
+                                }}
+                            >
                                 {nextSection.title} →
                             </Link>
-                        ) : (
-                            <div style={{ flex: 1 }} />
                         )}
                     </div>
                 )}
